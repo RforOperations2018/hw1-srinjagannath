@@ -7,6 +7,7 @@ library(plotly)
 library(shinythemes)
 library(stringr)
 
+# What are we loading here? Why? ;-p
 iris.load <- iris %>%
   mutate(sepallength = as.numeric(Sepal.Length),
          sepalwidth = as.numeric(Sepal.Width),
@@ -16,7 +17,8 @@ iris.load <- iris %>%
 
 pdf(NULL)
 
-#Define UI for application that draws a violinplot
+#Define UI for application that draws a violinplot 
+# A comment!
 ui <- navbarPage("Iris Navbar",
                  tabPanel("Plot",
                           sidebarLayout(
@@ -46,6 +48,7 @@ ui <- navbarPage("Iris Navbar",
 )
 
 #Define Server Logic
+# I'd like some comments somewhere down here!
 server <- function(input, output) {
   swInput <- reactive({
     iris <- iris.load %>%
@@ -56,6 +59,7 @@ server <- function(input, output) {
     }
   })
   mwInput <- reactive({
+    # Humor me in the future and change the names of these guys no points off because it works. Copying IS the sincerest form of flattery.
     swInput() %>%
       melt(id = "Species")
   })
